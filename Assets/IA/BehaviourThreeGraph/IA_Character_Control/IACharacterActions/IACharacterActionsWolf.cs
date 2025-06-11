@@ -7,7 +7,7 @@ public class IACharacterActionsWolf : IACharacterActions
 
     public float FrameRate = 0;
     public float Rate=1;
-    public int damageZombie;
+    public int damageGallina;
     private void Start()
     {
         LoadComponent();
@@ -23,13 +23,13 @@ public class IACharacterActionsWolf : IACharacterActions
         if(FrameRate>Rate)
         {
             FrameRate = 0;
-            IAEyeNPCAttack _IAEyeZombieAttack = ((IAEyeNPCAttack)AIEye);
+            IAEyeNPCAttack _IAEyeGallinaAttack = ((IAEyeNPCAttack)AIEye);
             
-            if (_IAEyeZombieAttack != null &&
-                _IAEyeZombieAttack.ViewEnemy != null)
+            if (_IAEyeGallinaAttack != null &&
+                _IAEyeGallinaAttack.ViewEnemy != null)
             {
-                
-                _IAEyeZombieAttack.ViewEnemy.Damage(damageZombie, health);
+
+                _IAEyeGallinaAttack.ViewEnemy.Damage(damageGallina, health);
             }
             
         }

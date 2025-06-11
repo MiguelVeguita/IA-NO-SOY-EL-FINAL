@@ -33,7 +33,7 @@ public class ActionFollowEnemy : ActionNodeVehicle
                 }
 
                 break;
-            case UnitGame.Gallina:
+            case UnitGame.Dog:
                 if (_IACharacterVehiculo is IACharacterVehiculoGallina)
                 {
                     ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToEnemy();

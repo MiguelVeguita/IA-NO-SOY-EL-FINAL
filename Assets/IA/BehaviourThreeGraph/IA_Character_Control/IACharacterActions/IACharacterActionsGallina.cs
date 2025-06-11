@@ -5,15 +5,15 @@ using UnityEngine;
 public class IACharacterActionsGallina : IACharacterActions
 {
 
-    float FrameRate = 0;
-    public float Rate=1;
+   // float FrameRate = 0;
+    //public float Rate=1;
 
     public override void LoadComponent()
     {
         base.LoadComponent();
 
     }
-    public void Attack()
+   /* public void Attack()
     {
         if(FrameRate>Rate)
         {
@@ -29,5 +29,5 @@ public class IACharacterActionsGallina : IACharacterActions
         
             Debug.Log("Shoot " + Time.time);
         
-    }
+    }*/
 }

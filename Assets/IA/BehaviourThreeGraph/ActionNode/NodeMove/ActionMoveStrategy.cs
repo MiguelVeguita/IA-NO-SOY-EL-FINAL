@@ -31,7 +31,7 @@ public class ActionMoveStrategy : ActionNodeVehicle
             case UnitGame.Gallina:
                 if (_IACharacterVehiculo is IACharacterVehiculoGallina)
                 {
-                    ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToStrategy();
+                  //  ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToStrategy();
                     ((IACharacterVehiculoGallina)_IACharacterVehiculo).LookEnemy();
                 }
                 break;
