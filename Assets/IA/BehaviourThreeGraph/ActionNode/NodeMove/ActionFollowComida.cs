@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorDesigner.Runtime.Tasks;
 [TaskCategory("MyAI/Move")]
-public class ActionFollowComida : ActionNodeVehicle
+public class ActionFollowEnemy : ActionNodeVehicle
 {
     public override void OnStart()
     {
@@ -33,7 +33,7 @@ public class ActionFollowComida : ActionNodeVehicle
                 }
 
                 break;
-            case UnitGame.Gallina:
+            case UnitGame.Dog:
                 if (_IACharacterVehiculo is IACharacterVehiculoGallina)
                 {
                     ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToEnemy();

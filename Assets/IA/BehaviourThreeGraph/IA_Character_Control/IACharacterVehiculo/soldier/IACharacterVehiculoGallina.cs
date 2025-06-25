@@ -38,33 +38,25 @@ public class IACharacterVehiculoGallina : IACharacterVehiculo
             return;
         }
 
-        // Calculamos la velocidad actual del NavMeshAgent como un porcentaje de su velocidad máxima.
-        // agent.velocity.magnitude nos dice qué tan rápido se está moviendo AHORA MISMO.
-        // Dividimos por agent.speed para obtener un valor entre 0 (parado) y 1 (velocidad máxima).
+        
         float speedPercent = agent.velocity.magnitude / agent.speed;
 
-        // Actualizamos el parámetro "Vert" en el Animator.
-        // El animator usará este valor para decidir si debe pasar de Idle a Walk/Run.
-        // El valor 0.1f es un "damp time" para suavizar la transición y que no sea instantánea.
+       
         animator.SetFloat(verticalAnimatorID, speedPercent, 0.1f, Time.deltaTime);
     }
     public override void MoveToWander()
     {
-        // Al deambular, nos aseguramos de que tenga la velocidad de patrulla correcta.
+        
         if (agent != null && agent.speed != patrolSpeed)
         {
             agent.speed = patrolSpeed;
         }
-        base.MoveToWander(); // Llama a la lógica de movimiento de la clase base
+        base.MoveToWander(); 
     }
     public override void MoveToPosition(Vector3 pos)
     {
         base.MoveToPosition(pos);
     }
-   /*/ public override void MoveToEnemy()
-    {
-        base.MoveToEnemy( );
-    }*/
     public override void MoveToAllied()
     {
         base.MoveToAllied( );

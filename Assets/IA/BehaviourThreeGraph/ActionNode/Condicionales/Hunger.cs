@@ -69,7 +69,7 @@ public class Hunger : MonoBehaviour
     /// <param name="amount">Cantidad de hambre a restaurar.</param>
     public void Eat(int amount)
     {
-        amount = 10;
+        
         hunger = Mathf.Min(hungerMax, hunger + amount);
         UpdateHungerBar();
     }

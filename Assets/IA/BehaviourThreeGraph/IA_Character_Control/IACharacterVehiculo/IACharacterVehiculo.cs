@@ -58,6 +58,11 @@ public class IACharacterVehiculo : IACharacterControl
         if (AIEye.ViewEnemy == null) return;
         MoveToPosition(AIEye.ViewEnemy.transform.position);
     }
+    public virtual void MoveToComida()
+    {
+        if (AIEye.ViewEnemy == null) return;
+        MoveToPosition(AIEye.ViewEnemy.transform.position);
+    }
     public virtual void MoveToAllied()
     {
         if (AIEye.ViewAllie == null) return;

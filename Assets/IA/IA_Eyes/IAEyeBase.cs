@@ -217,12 +217,12 @@ public class IAEyeBase : MonoBehaviour
     protected float Framerate = 0;
     #endregion
     public Health health { get; set; }
-
+    public FoodItem Food { get; set; }
     public bool IsDrawGizmo = false;
     public Transform AimOffset;
     public Health ViewEnemy;
     public Health ViewAllie;// { get; set; }
-
+    public FoodItem ViewFood;
     public Vector3 Target { get; set; }
 
    
@@ -325,12 +325,14 @@ public class IAEyeBase : MonoBehaviour
         if (health.HurtingMe != null) return;
         ViewAllie = null;
         ViewEnemy = null;
+        ViewFood = null;
         Collider[] colliders = Physics.OverlapSphere(transform.position, mainDataView.Distance, mainDataView.Scanlayers);
         CountEnemyView = 0;
         count = colliders.Length;
 
-        
-        float min_dist = 10000000000f;
+
+        float min_dist_enemy = 10000000000f;
+        float min_dist_food = 10000000000f;
 
         for (int i = 0; i < count; i++)
         {
@@ -347,29 +349,42 @@ public class IAEyeBase : MonoBehaviour
                     Scanhealth.IsCantView &&
                     mainDataView.IsInSight(Scanhealth.AimOffset))
                 {
-                    ExtractViewEnemy(ref min_dist, Scanhealth);
+                    ExtractViewEnemy(ref min_dist_enemy, Scanhealth);
                     Debug.Log(mainDataView);
                 }
-
+                FoodItem foodItem = obj.GetComponent<FoodItem>();
+                /*if (foodItem != null && mainDataView.IsInSight(foodItem.transform)) // Si el objeto es comida Y está a la vista
+                {
+                    float dist_to_food = (transform.position - foodItem.transform.position).magnitude;
+                    if (dist_to_food < min_dist_food)
+                    {
+                        // Hemos encontrado una comida más cercana que la anterior
+                        ViewFood = foodItem;
+                        min_dist_food = dist_to_food;
+                    }
+                }*/
+                if (foodItem != null &&
+                    obj.activeSelf && mainDataView.IsInSight(foodItem.transform))
+                {
+                    ExtractViewFood(ref min_dist_food, foodItem);
+                    Debug.Log(mainDataView);
+                }
             }
-
-
-
         }
 
     }
 
-    private void ExtractViewEnemy(ref float min_dist, Health _health)
+    private void ExtractViewEnemy(ref float min_dist_enemy, Health _health)
     {
         
         if (!IsAllies(_health))
         {
              
             float dist = (transform.position - _health.transform.position).magnitude;
-            if (min_dist > dist)
+            if (min_dist_enemy > dist)
             {
                 ViewEnemy = _health;
-                min_dist = dist;
+                min_dist_enemy = dist;
                  
             }
             CountEnemyView++;
@@ -382,7 +397,22 @@ public class IAEyeBase : MonoBehaviour
         //}
 
     }
+    private void ExtractViewFood(ref float min_dist_food, FoodItem food)
+    {
 
+        
+
+            float dist = (transform.position - food.transform.position).magnitude;
+            if (min_dist_food > dist)
+            {
+                ViewFood = food;
+            min_dist_food = dist;
+            Debug.Log("daaaaaaaaaaaaaaaaaaaaaaa");
+
+            }
+           
+        
+    }
     public virtual bool IsAllies(Health heatlhScan)
     {
         for (int j = 0; (health != null && j < health.typeAgentAllies.Count); j++)

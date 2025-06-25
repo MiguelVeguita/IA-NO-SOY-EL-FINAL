@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class IACharacterActionsGallina : IACharacterActions
 {
+    void Awake()
+    {
+        // Es crucial llamar a LoadComponent para que las referencias a 'hunger' 
+        // y 'AIEye' (heredadas de IACharacterControl) se inicialicen.
+        LoadComponent();
+    }
 
-   // float FrameRate = 0;
-    //public float Rate=1;
 
     public override void LoadComponent()
     {
         base.LoadComponent();
 
     }
-   /* public void Attack()
-    {
-        if(FrameRate>Rate)
-        {
-            FrameRate = 0;
-            Debug.Log("Attack "+Time.time);
-        }
-        FrameRate += Time.deltaTime;
-
-
-    }
-    public void Shoot()
-    {
-        
-            Debug.Log("Shoot " + Time.time);
-        
-    }*/
+  
 }

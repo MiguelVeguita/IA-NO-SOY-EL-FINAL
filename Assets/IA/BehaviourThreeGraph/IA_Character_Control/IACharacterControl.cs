@@ -11,6 +11,8 @@ public class IACharacterControl : MonoBehaviour
     public IAEyeBase AIEye { get; set; }
     public Hunger hunger { get; set; }
 
+    
+
     public virtual void LoadComponent()
     {
         agent = GetComponent<NavMeshAgent>();
