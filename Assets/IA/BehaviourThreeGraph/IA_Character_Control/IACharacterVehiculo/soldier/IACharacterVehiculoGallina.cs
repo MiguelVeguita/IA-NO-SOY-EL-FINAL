@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class IACharacterVehiculoGallina : IACharacterVehiculo
 {
-    private Animator animator;
+    public Animator animator;
     public string verticalAnimatorID = "Vert";
     public float patrolSpeed = 1.5f;
     Vector3 normales = Vector3.zero;
@@ -18,7 +18,7 @@ public class IACharacterVehiculoGallina : IACharacterVehiculo
     public override void LoadComponent()
     {
         base.LoadComponent();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         if (animator == null)
         {
             Debug.LogError("¡No se encontró el componente Animator en la gallina! Es necesario para las animaciones.");
@@ -39,10 +39,10 @@ public class IACharacterVehiculoGallina : IACharacterVehiculo
         }
 
         
-        float speedPercent = agent.velocity.magnitude / agent.speed;
+        float speedPercent =  agent.speed;
 
        
-        animator.SetFloat(verticalAnimatorID, speedPercent, 0.1f, Time.deltaTime);
+        animator.SetFloat("Vert", speedPercent, 0.1f, Time.deltaTime);
     }
     public override void MoveToWander()
     {
