@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e0b3ce94e48e241aee2dc9342a1602, type: 3}
+  m_Name: LogicDiffuseDataScriptableObject
+  m_EditorClassIdentifier: 
+  SpeedDependDistanceEnemy:
+    MembershipFunctions:
+    - Name: Cerca
+      FunctionCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 14
+          value: 1
+          inSlope: -0.00032050355
+          outSlope: -0.00032050355
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.1099701
+        - serializedVersion: 3
+          time: 20
+          value: 0
+          inSlope: -0.16666667
+          outSlope: -0.16666667
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AssociatedRule:
+        Condition: 
+        Weight: 1
+      SingletonDistance: 6
+    - Name: Medio
+      FunctionCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 16
+          value: 0
+          inSlope: 0.125
+          outSlope: 0.125
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 24
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 32
+          value: 0
+          inSlope: -0.125
+          outSlope: -0.125
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AssociatedRule:
+        Condition: 
+        Weight: 1
+      SingletonDistance: 3
+    - Name: Lejos
+      FunctionCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 27
+          value: 0
+          inSlope: 0.16666667
+          outSlope: 0.16666667
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 33
+          value: 1
+          inSlope: 0.000008895531
+          outSlope: 0.000008895531
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.05168969
+        - serializedVersion: 3
+          time: 40
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AssociatedRule:
+        Condition: 
+        Weight: 1
+      SingletonDistance: 2
+    Promedio: 0
+  SpeedDependDistanceAllied:
+    MembershipFunctions: []
+    Promedio: 0
+  SpeedDependDistancePosition:
+    MembershipFunctions: []
+    Promedio: 0
