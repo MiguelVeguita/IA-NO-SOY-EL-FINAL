@@ -1,27 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorDesigner.Runtime.Tasks;
-public class NoHaveHungry : ActionNodeAction
+[TaskCategory("MyAI/View")]
+public class ActionIsLife : ActionNodeView
 {
     public override void OnAwake()
     {
         base.OnAwake();
-    }
 
+    }
     public override TaskStatus OnUpdate()
     {
-
-        if (_IACharacterVehiculo.hunger.IsStarving)
+       
+        if (_IACharacterActions.AIEye.ViewFood.IsDead)
             return TaskStatus.Failure;
 
-        SwitchUnit();
 
         return TaskStatus.Success;
-    }
-    void SwitchUnit()
-    {
-
     }
 
 }

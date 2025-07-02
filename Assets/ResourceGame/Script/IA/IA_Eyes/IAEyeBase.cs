@@ -312,12 +312,7 @@ public class IAEyeBase : MonoBehaviour
         }
 
         Framerate += Time.deltaTime;
-
-        if (ViewEnemy != null && ((ViewEnemy.IsDead) || (!ViewEnemy.IsCantView)))
-        {
-            ViewEnemy = null;
-        }
-
+ 
         
     }
 
@@ -346,15 +341,16 @@ public class IAEyeBase : MonoBehaviour
                 Health Scanhealth = obj.GetComponent<Health>();
                 if (Scanhealth != null &&
                     obj.activeSelf &&
-                    !Scanhealth.IsDead &&
                     Scanhealth.IsCantView &&
                     mainDataView.IsInSight(Scanhealth.AimOffset))
                 {
-                    if (Scanhealth._UnitGame == UnitGame.Item)
+                    if (Scanhealth._UnitGame == UnitGame.Item && Scanhealth.IsCountFood)
                     {
                         ExtractViewFood(ref min_dist_food, Scanhealth);
+                         
                     }
                     else
+                        if(!Scanhealth.IsDead)
                         ExtractViewEnemy(ref min_dist_enemy, Scanhealth);
                     
                 }

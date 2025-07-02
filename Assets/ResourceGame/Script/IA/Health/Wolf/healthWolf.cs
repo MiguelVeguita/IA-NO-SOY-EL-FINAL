@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class healthWolf : Health
 {
-    
+    private void Awake()
+    {
+        LoadComponent();
+    }
+    public override void LoadComponent()
+    {
+        base.LoadComponent();
+    }
 }

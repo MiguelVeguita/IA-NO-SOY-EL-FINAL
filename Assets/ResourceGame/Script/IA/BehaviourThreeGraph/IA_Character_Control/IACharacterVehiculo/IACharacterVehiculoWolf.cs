@@ -25,6 +25,7 @@ public class IACharacterVehiculoWolf : IACharacterCaninus
     }
     public override void MoveToItem()
     {
+ 
         base.MoveToItem();
         if (AIEye.ViewFood == null) return;
         float dist = (transform.position - AIEye.ViewFood.transform.position).magnitude;

@@ -15,13 +15,13 @@ public class IAEyeAttack : IAEyeBase
     public override void UpdateScan()
     {
         base.UpdateScan();
-        if (ViewEnemy != null)
-            AttackDataView.IsInSight(ViewEnemy.AimOffset);
-        else
-        {
-            AttackDataView.Sight = false;
-            mainDataView.Sight = false;
-        }
+        //if (ViewEnemy != null)
+        //    AttackDataView.IsInSight(ViewEnemy.AimOffset);
+        //else
+        //{
+        //    AttackDataView.Sight = false;
+        //    mainDataView.Sight = false;
+        //}
 
     }
      

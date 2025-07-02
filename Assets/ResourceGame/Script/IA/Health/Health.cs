@@ -19,8 +19,10 @@ public class Health : MonoBehaviour
     [Header("CountHealth")]
     public int health;
     public int healthMax;
-
-    public bool IsDead { get => (health <= 0); }
+    public int CountFood;
+    public int CountFoodMax;
+    public bool IsCountFood { get => (CountFood > 0); }
+    public bool IsDead { get => (health <= 0 ); }
 
     [Header("AimOffSet")]
     public Transform AimOffset;
@@ -38,7 +40,7 @@ public class Health : MonoBehaviour
     public virtual void LoadComponent()
     {
         health = healthMax;
-
+        CountFood = CountFoodMax;
     }
 
     IEnumerator HurtingMeActive(Health enemy)
@@ -48,7 +50,13 @@ public class Health : MonoBehaviour
         HurtingMe = null;
         StopCoroutine(HurtingMeroutine);
     }
+    public void DiscountFood(int discount, Hunger HungerWolf)
+    {
+        CountFood = Mathf.Clamp(CountFood - discount, 0, CountFoodMax);
+        if (CountFood > 0)
+            HungerWolf.Eat(10);
 
+    }
     public virtual void Damage(int damage, Health enemy)
     {
 

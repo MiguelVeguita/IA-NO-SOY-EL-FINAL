@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IAEyeNPCAttack : IAEyeAttack
+public class IAEyeNPCAttackWolf : IAEyeBase
 {
-    
-    private void Start()
+    public DataView AttackDataViewItem = new DataView();
+    private void Awake()
     {
         LoadComponent();
     }
@@ -23,20 +23,26 @@ public class IAEyeNPCAttack : IAEyeAttack
     public override void UpdateScan()
     {
         base.UpdateScan();
-        
+        if (ViewFood != null)
+            AttackDataViewItem.IsInSight(ViewFood.AimOffset);
+        else
+        {
+            AttackDataViewItem.Sight = false;
+            mainDataView.Sight = false;
+        }
 
     }
 
     private void OnValidate()
     {
         mainDataView.CreateMesh();
-        AttackDataView.CreateMesh();
+        AttackDataViewItem.CreateMesh();
         EatDataView.CreateMesh();
     }
     private void OnDrawGizmos()
     {
         mainDataView.OnDrawGizmos();
-        AttackDataView.OnDrawGizmos();
+        AttackDataViewItem.OnDrawGizmos();
         EatDataView.OnDrawGizmos();
     }
 }

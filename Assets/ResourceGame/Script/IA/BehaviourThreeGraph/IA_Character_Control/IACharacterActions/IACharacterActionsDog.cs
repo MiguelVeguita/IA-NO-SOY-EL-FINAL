@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IACharacterActionsDog : IACharacterActions
+public class IACharacterActionsDog : AICharacterActionsCaninus
 {
 
-    public float FrameRate = 0;
-    public float Rate=1;
-    public int damageZombie;
+    IAEyeNPCAttackDog _IAEyeAttack;
     private void Start()
     {
         LoadComponent();
@@ -15,26 +13,16 @@ public class IACharacterActionsDog : IACharacterActions
     public override void LoadComponent()
     {
         base.LoadComponent();
-
+        _IAEyeAttack = ((IAEyeNPCAttackDog)AIEye);
     }
-    public void Attack()
+    public override void Damage()
     {
-         
-        if(FrameRate>Rate)
+        if (_IAEyeAttack != null &&
+                   _IAEyeAttack.ViewEnemy != null &&
+                   _IAEyeAttack.AttackDataViewEnemy.Sight)
         {
-            FrameRate = 0;
-            IAEyeNPCAttack _IAEyeZombieAttack = ((IAEyeNPCAttack)AIEye);
-            
-            if (_IAEyeZombieAttack != null &&
-                _IAEyeZombieAttack.ViewEnemy != null)
-            {
-                
-                _IAEyeZombieAttack.ViewEnemy.Damage(damageZombie, health);
-            }
-            
+            _IAEyeAttack.ViewEnemy.Damage(damage, health);
         }
-        FrameRate += Time.deltaTime;
-
 
     }
 }

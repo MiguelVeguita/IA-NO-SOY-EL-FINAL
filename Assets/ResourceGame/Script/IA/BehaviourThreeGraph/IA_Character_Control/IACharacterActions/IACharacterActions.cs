@@ -13,17 +13,17 @@ public class IACharacterActions : IACharacterControl
         base.LoadComponent();
 
     }
-    public void DamageEating()
+    public virtual void DamageEating()
     {
-        if (AIEye != null &&
-                   AIEye.ViewFood != null &&
-                   AIEye.EatDataView.Sight)
-        {
-            AIEye.ViewFood.Damage(damageEating, health);
-        }
+        //if (AIEye != null &&
+        //           AIEye.ViewFood != null &&
+        //           AIEye.EatDataView.Sight)
+        //{
+        //    AIEye.ViewFood.Damage(damageEating, health);
+        //}
 
     }
-    public void Eating()
+    public virtual void Eating()
     {
 
         if (FrameRateEating > RateEating)

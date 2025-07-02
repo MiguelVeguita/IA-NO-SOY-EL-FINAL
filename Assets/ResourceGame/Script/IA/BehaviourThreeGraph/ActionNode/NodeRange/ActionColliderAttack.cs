@@ -5,30 +5,49 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskCategory("MyAI/Range")]
 public class ActionColliderAttack : ActionNodeRange
 {
-    public override void OnStart()
+    public override void OnAwake()
     {
-        base.OnStart();
+        base.OnAwake();
     }
     public override TaskStatus OnUpdate()
     {
-        if(_IACharacterVehiculo.AIEye.ViewEnemy==null)
-          return TaskStatus.Failure;
-        if(_IACharacterVehiculo.AIEye is IAEyeShootAttack)
-        {
-            IAEyeShootAttack _IAEyeShootAttack = ((IAEyeShootAttack)_IACharacterVehiculo.AIEye);
-            if (_IAEyeShootAttack != null && _IAEyeShootAttack.AttackDataView.Sight)
-                return TaskStatus.Success;
-        }
-        else
-        if (_IACharacterVehiculo.AIEye is IAEyeAttack)
-        {
-            IAEyeAttack _IAEyeAttack = ((IAEyeAttack)_IACharacterVehiculo.AIEye);
-            if (_IAEyeAttack != null && _IAEyeAttack.AttackDataView.Sight)
-                return TaskStatus.Success;
-        }
+        if (_IACharacterVehiculo.health.IsDead)
+            return TaskStatus.Failure;
+
+         return SwitchUnit();
         
+    }
+    TaskStatus SwitchUnit()
+    {
+
+
+        switch (_UnitGame)
+        {
+            case UnitGame.Wolf:
+                if (_IACharacterVehiculo.AIEye is IAEyeNPCAttackWolf IAEyeWolf)
+                {
+                    
+                    if (IAEyeWolf != null && IAEyeWolf.AttackDataViewItem.Sight)
+                        return TaskStatus.Success;
+                }
+
+                break;
+            case UnitGame.Dog:
+                if (_IACharacterVehiculo.AIEye is IAEyeNPCAttackDog IAEyeDog)
+                {
+
+                    if (IAEyeDog != null && IAEyeDog.AttackDataViewEnemy.Sight)
+                        return TaskStatus.Success;
+                }
+                break;
+            case UnitGame.None:
+                break;
+            default:
+                break;
+        }
 
         return TaskStatus.Failure;
+
     }
 
 

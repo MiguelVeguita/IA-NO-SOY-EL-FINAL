@@ -5,27 +5,20 @@ public class AICharacterActionsCaninus : IACharacterActions
     protected float FrameRate = 0;
     public float Rate = 1;
     public int damage;
-    protected IAEyeNPCAttack _IAEyeAttack;
     
     public override void LoadComponent()
     {
         base.LoadComponent();
-        _IAEyeAttack = ((IAEyeNPCAttack)AIEye);
+         
         _CharacterAnimationBase = GetComponent<CharacterCaninus>();
     }
-    public void Damage()
+    public virtual void Damage()
     {
-        if (_IAEyeAttack != null &&
-                   _IAEyeAttack.ViewEnemy != null &&
-                   _IAEyeAttack.AttackDataView.Sight)
-        {
-            _IAEyeAttack.ViewEnemy.Damage(damage, health);
-        }
-
+         
     }
     public void Attack()
     {
-
+        
         if (FrameRate > Rate)
         {
             FrameRate = 0;
@@ -35,5 +28,16 @@ public class AICharacterActionsCaninus : IACharacterActions
 
 
     }
+    public override void Eating()
+    {
 
+        if (FrameRateEating > RateEating)
+        {
+            FrameRateEating = 0;
+            ((CharacterCaninus)_CharacterAnimationBase).Eat();
+        }
+        FrameRateEating += Time.deltaTime;
+
+
+    }
 }

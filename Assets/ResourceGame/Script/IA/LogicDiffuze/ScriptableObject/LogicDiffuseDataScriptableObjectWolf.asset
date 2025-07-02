@@ -248,7 +248,7 @@ MonoBehaviour:
         Condition: 
         Weight: 1
       SingletonDistance: 3.5
-    Promedio: 2
+    Promedio: 2.5
   EvadeDependDistanceEnemy:
     MembershipFunctions:
     - Name: Cerca
@@ -405,7 +405,7 @@ MonoBehaviour:
       AssociatedRule:
         Condition: 
         Weight: 1
-      SingletonDistance: 2
+      SingletonDistance: 3.5
     - Name: Medio
       FunctionCurve:
         serializedVersion: 2
@@ -443,7 +443,7 @@ MonoBehaviour:
       AssociatedRule:
         Condition: 
         Weight: 1
-      SingletonDistance: 3.5
+      SingletonDistance: 2.5
     - Name: Lejos
       FunctionCurve:
         serializedVersion: 2
@@ -481,5 +481,5 @@ MonoBehaviour:
       AssociatedRule:
         Condition: 
         Weight: 1
-      SingletonDistance: 3.5
-    Promedio: 0
+      SingletonDistance: 2
+    Promedio: 2
