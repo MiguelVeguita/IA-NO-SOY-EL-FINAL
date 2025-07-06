@@ -15,12 +15,12 @@ public class IACharacterActions : IACharacterControl
     }
     public virtual void DamageEating()
     {
-        //if (AIEye != null &&
-        //           AIEye.ViewFood != null &&
-        //           AIEye.EatDataView.Sight)
-        //{
-        //    AIEye.ViewFood.Damage(damageEating, health);
-        //}
+        if (AIEye != null &&
+                   AIEye.ViewFood != null &&
+                   AIEye.EatDataView.Sight)
+        {
+            AIEye.ViewFood.Damage(damageEating, health);
+        }
 
     }
     public virtual void Eating()

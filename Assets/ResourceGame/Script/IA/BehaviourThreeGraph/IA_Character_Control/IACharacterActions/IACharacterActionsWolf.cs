@@ -30,13 +30,17 @@ public class IACharacterActionsWolf : AICharacterActionsCaninus
     public override void DamageEating()
     {
         if (_IAEyeAttack != null &&
-                   _IAEyeAttack.ViewFood != null &&
-                   _IAEyeAttack.AttackDataViewItem.Sight)
+            _IAEyeAttack.ViewFood != null &&
+            _IAEyeAttack.AttackDataViewItem.Sight)
         {
-            healtGallina item = ((healtGallina)_IAEyeAttack.ViewFood);
-            item.DiscountFood(EatingValue, hunger);
+            if (FrameRateEating > RateEating)
+            {
+                FrameRateEating = 0;
+                healtGallina item = ((healtGallina)_IAEyeAttack.ViewFood);
+                item.DiscountFood(EatingValue, hunger);
+            }
+            FrameRateEating += Time.deltaTime;
         }
-
     }
 
 }

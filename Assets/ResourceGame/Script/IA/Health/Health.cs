@@ -9,6 +9,7 @@ public enum UnitGame
     Wolf,
     Dog,
     Item,
+    Maiz,
     None
 }
 public class Health : MonoBehaviour
@@ -50,13 +51,17 @@ public class Health : MonoBehaviour
         HurtingMe = null;
         StopCoroutine(HurtingMeroutine);
     }
-    public void DiscountFood(int discount, Hunger HungerWolf)
-    {
-        CountFood = Mathf.Clamp(CountFood - discount, 0, CountFoodMax);
-        if (CountFood > 0)
-            HungerWolf.Eat(10);
+    
+        public void DiscountFood(int discount, Hunger HungerWolf)
+        {
+            Debug.Log("Antes de comer, CountFood: " + CountFood);
+            CountFood = Mathf.Clamp(CountFood - discount, 0, CountFoodMax);
+            Debug.Log("Después de comer, CountFood: " + CountFood);
 
-    }
+            if (CountFood > 0)
+                HungerWolf.Eat(10);
+        }
+    
     public virtual void Damage(int damage, Health enemy)
     {
 

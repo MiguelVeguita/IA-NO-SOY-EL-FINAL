@@ -21,17 +21,19 @@ public class IAEyeGallina : IAEyeBase
     {
         base.UpdateScan();
 
-
+     
     }
 
     private void OnValidate()
     {
         mainDataView.CreateMesh();
-
+        EatDataView.CreateMesh();
     }
     private void OnDrawGizmos()
     {
         mainDataView.OnDrawGizmos();
+        EatDataView.OnDrawGizmos();
+
     }
 
 

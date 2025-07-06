@@ -347,12 +347,15 @@ public class IAEyeBase : MonoBehaviour
                     if (Scanhealth._UnitGame == UnitGame.Item && Scanhealth.IsCountFood)
                     {
                         ExtractViewFood(ref min_dist_food, Scanhealth);
-                         
                     }
-                    else
-                        if(!Scanhealth.IsDead)
+                    else if (Scanhealth._UnitGame == UnitGame.Maiz && Scanhealth.IsCountFood)
+                    {
+                        ExtractViewFood(ref min_dist_food, Scanhealth);
+                    }
+                    else if (!Scanhealth.IsDead)
+                    {
                         ExtractViewEnemy(ref min_dist_enemy, Scanhealth);
-                    
+                    }
                 }
                 
             }

@@ -22,10 +22,10 @@ public class IACharacterCaninus : IACharacterVehiculo
     }
     public override void MoveToEvadEnemy()
     {
-        //if (AIEye.ViewEnemy == null) return;
-        //Vector3 dir = (transform.position - AIEye.ViewEnemy.transform.position).normalized;
-        //Vector3 newPosition = transform.position + dir * 5f;
-        //MoveToPosition(newPosition);
+        if (AIEye.ViewEnemy == null) return;
+        Vector3 dir = (transform.position - AIEye.ViewEnemy.transform.position).normalized;
+        Vector3 newPosition = transform.position + dir * 5f;
+        MoveToPosition(newPosition);
     }
 
      
