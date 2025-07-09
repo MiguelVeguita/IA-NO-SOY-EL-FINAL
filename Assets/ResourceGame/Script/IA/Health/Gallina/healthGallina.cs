@@ -27,7 +27,7 @@ public class healtGallina : Health
         }
         if (!IsCountFood)
         {
-          //  Destroy(this.gameObject);
+           Destroy(this.gameObject);
         }
     }
 
