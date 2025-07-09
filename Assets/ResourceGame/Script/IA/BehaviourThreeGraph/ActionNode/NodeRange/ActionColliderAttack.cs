@@ -40,6 +40,14 @@ public class ActionColliderAttack : ActionNodeRange
                         return TaskStatus.Success;
                 }
                 break;
+            case UnitGame.Item:
+                if (_IACharacterVehiculo.AIEye is IAEyeGallina IAEyeGallina)
+                {
+
+                    if (IAEyeGallina != null && IAEyeGallina.EatDataView.Sight)
+                        return TaskStatus.Success;
+                }
+                break;
             case UnitGame.None:
                 break;
             default:

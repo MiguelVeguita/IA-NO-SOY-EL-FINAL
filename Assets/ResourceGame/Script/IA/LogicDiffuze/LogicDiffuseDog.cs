@@ -4,6 +4,7 @@ using UnityEngine;
  
 public class LogicDiffuseDog: LogicDiffuse
 {
+    public FuzzySystem SpeedDependDistanceItem = new FuzzySystem();
     private void Awake()
     {
         this.LoadScriptableObject();
@@ -17,6 +18,9 @@ public class LogicDiffuseDog: LogicDiffuse
             SpeedDependDistanceEnemy = logicDiffuseData.SpeedDependDistanceEnemy;
             SpeedDependDistanceAllied = logicDiffuseData.SpeedDependDistanceAllied;
             SpeedDependDistancePosition = logicDiffuseData.SpeedDependDistancePosition;
+            
+            SpeedDependDistanceItem = ((LogicDiffuseDataScriptableObjectWolf)logicDiffuseData).SpeedDependDistanceItem;
+
         }
     }
 }

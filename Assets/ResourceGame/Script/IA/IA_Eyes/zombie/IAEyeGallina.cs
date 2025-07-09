@@ -20,8 +20,14 @@ public class IAEyeGallina : IAEyeBase
     public override void UpdateScan()
     {
         base.UpdateScan();
+        if (ViewFood != null)
+            EatDataView.IsInSight(ViewFood.AimOffset);
+        else
+        {
+            EatDataView.Sight = false;
+            mainDataView.Sight = false;
+        }
 
-     
     }
 
     private void OnValidate()

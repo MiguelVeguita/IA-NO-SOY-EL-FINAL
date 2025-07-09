@@ -39,6 +39,13 @@ public class ActionWander : ActionNodeVehicle
 
                 }
                 break;
+            case UnitGame.Dog:
+                if (_IACharacterVehiculo is IACharacterVehiculoDog)
+                {
+                    ((IACharacterVehiculoDog)_IACharacterVehiculo).MoveToWander();
+
+                }
+                break;
             case UnitGame.None:
                 break;
             default:

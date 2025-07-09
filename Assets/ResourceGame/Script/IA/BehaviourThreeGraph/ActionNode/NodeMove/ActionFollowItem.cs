@@ -34,10 +34,18 @@ public class ActionFollowItem : ActionNodeVehicle
 
                 break;
             case UnitGame.Dog:
+                if (_IACharacterVehiculo is IACharacterVehiculoDog)
+                {
+                    ((IACharacterVehiculoDog)_IACharacterVehiculo).MoveToEnemy();
+                    ((IACharacterVehiculoDog)_IACharacterVehiculo).LookEnemy();
+                }
+                break;
+            case UnitGame.Item:
                 if (_IACharacterVehiculo is IACharacterVehiculoGallina)
                 {
-                    ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToEnemy();
+                    ((IACharacterVehiculoGallina)_IACharacterVehiculo).MoveToItem();
                     ((IACharacterVehiculoGallina)_IACharacterVehiculo).LookEnemy();
+                    Debug.Log("aqui");
                 }
                 break;
             case UnitGame.None:

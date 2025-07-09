@@ -17,12 +17,18 @@ public class IACharacterActionsDog : AICharacterActionsCaninus
     }
     public override void Damage()
     {
-        if (_IAEyeAttack != null &&
-                   _IAEyeAttack.ViewEnemy != null &&
-                   _IAEyeAttack.AttackDataViewEnemy.Sight)
+        if (FrameRate > Rate)
         {
-            _IAEyeAttack.ViewEnemy.Damage(damage, health);
+            FrameRate = 0; 
+
+            if (_IAEyeAttack != null &&
+                _IAEyeAttack.ViewEnemy != null &&
+                _IAEyeAttack.AttackDataViewEnemy.Sight)
+            {
+                _IAEyeAttack.ViewEnemy.Damage(damage, health);
+            }
         }
+        FrameRate += Time.deltaTime;
 
     }
 }

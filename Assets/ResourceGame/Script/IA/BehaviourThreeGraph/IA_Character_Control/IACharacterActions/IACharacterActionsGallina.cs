@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class IACharacterActionsGallina : IACharacterActions
 {
+    IAEyeGallina _IAEyeAttack;
+    public int EatingValue;
     void Awake()
     {
-        // Es crucial llamar a LoadComponent para que las referencias a 'hunger' 
-        // y 'AIEye' (heredadas de IACharacterControl) se inicialicen.
+       
         LoadComponent();
     }
 
@@ -15,7 +16,22 @@ public class IACharacterActionsGallina : IACharacterActions
     public override void LoadComponent()
     {
         base.LoadComponent();
-
+        _IAEyeAttack = ((IAEyeGallina)AIEye);
     }
-  
+    public override void DamageEating()
+    {
+        if (_IAEyeAttack != null &&
+            _IAEyeAttack.ViewFood != null &&
+            _IAEyeAttack.EatDataView.Sight)
+        {
+            if (FrameRateEating > RateEating)
+            {
+                FrameRateEating = 0;
+                healtPan item = ((healtPan)_IAEyeAttack.ViewFood);
+                item.DiscountFood(EatingValue, hunger);
+            }
+            FrameRateEating += Time.deltaTime;
+        }
+    }
+
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healtDog : Health
+public class healtPan : Health
 {
+    
     private void Awake()
     {
         LoadComponent();
@@ -11,5 +12,8 @@ public class healtDog : Health
     public override void LoadComponent()
     {
         base.LoadComponent();
+       
     }
+
+    
 }

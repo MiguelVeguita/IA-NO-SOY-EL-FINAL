@@ -38,9 +38,10 @@ public class ActionEatFood : ActionNodeAction
 
                 break;
             case UnitGame.Item:
-                if (_IACharacterActions is IACharacterActionsSoldier)
+                if (_IACharacterActions is IACharacterActionsGallina)
                 {
-                    ((IACharacterActionsSoldier)_IACharacterActions).DamageEating();
+                    ((IACharacterActionsGallina)_IACharacterActions).DamageEating();
+                    ((IACharacterActionsGallina)_IACharacterActions).Eating();
                 }
 
                 break;

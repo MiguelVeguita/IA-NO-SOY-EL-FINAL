@@ -34,10 +34,11 @@ public class ActionNodeAttack : ActionNodeAction
                 }
 
                 break;
-            case UnitGame.Item:
-                if (_IACharacterActions is IACharacterActionsSoldier)
+            case UnitGame.Dog:
+                if (_IACharacterActions is IACharacterActionsDog)
                 {
-                    ((IACharacterActionsSoldier)_IACharacterActions).Attack();
+                    ((IACharacterActionsDog)_IACharacterActions).Attack();
+                    ((IACharacterActionsDog)_IACharacterActions).Damage();
                 }
 
                 break;
