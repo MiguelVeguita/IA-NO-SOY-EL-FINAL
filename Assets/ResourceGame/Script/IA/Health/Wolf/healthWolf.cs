@@ -12,4 +12,8 @@ public class healthWolf : Health
     {
         base.LoadComponent();
     }
+    public void Update()
+    {
+       
+    }
 }

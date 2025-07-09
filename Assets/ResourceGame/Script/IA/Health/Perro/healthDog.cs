@@ -12,4 +12,12 @@ public class healtDog : Health
     {
         base.LoadComponent();
     }
+    private void Update()
+    {
+       
+        if (!IsCountFood)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

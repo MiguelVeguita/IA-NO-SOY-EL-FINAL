@@ -33,6 +33,8 @@ public class CharacterAnimationBase : MonoBehaviour
 
         float speedPercent = agent.velocity.magnitude / maxSpeed;
         animator.SetFloat("Forward", speedPercent);
+
+       
     }
 
     // Métodos para animaciones de acciones

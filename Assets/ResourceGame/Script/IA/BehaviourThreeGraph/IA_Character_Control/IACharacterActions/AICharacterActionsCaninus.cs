@@ -28,6 +28,15 @@ public class AICharacterActionsCaninus : IACharacterActions
 
 
     }
+    public void Update()
+    {
+        if (health.IsDead)
+        {
+            
+           ((CharacterCaninus)_CharacterAnimationBase).Death();
+            
+        }
+    }
     public override void Eating()
     {
 
